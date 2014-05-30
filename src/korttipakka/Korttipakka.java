@@ -13,8 +13,9 @@ public class Korttipakka {
     private ArrayList<Kortti> pakka;
 
     public Korttipakka(){
-        alustaKorttiPakka();
+        
         pakka = new ArrayList<>();
+        alustaKorttiPakka();
     }
     public void alustaKorttiPakka(){
         
@@ -35,6 +36,10 @@ public class Korttipakka {
             pakka.add(korttinen);
         }
         
+    }
+    public ArrayList getPakka(){
+        
+        return this.pakka;
     }
     private void muokkaus(){
     

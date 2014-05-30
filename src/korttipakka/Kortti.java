@@ -31,4 +31,20 @@ public class Kortti {
         return this.maa;
     }
 
+    @Override
+    public String toString() {
+
+        if (this.maa == Maa.HERTTA) {
+            return "[" + this.arvo + "h]";
+        } else if (this.maa == Maa.PATA) {
+            return "[" + this.arvo + "s]";
+        } else if (this.maa == Maa.RISTI) {
+            return "[" + this.arvo + "c]";
+        } else if (this.maa == Maa.RUUTU) {
+            return "[" + this.arvo + "d]";
+        } else {
+            return null;
+        }
+    }
+
 }
