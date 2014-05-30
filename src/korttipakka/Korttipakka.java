@@ -14,7 +14,7 @@ public class Korttipakka {
 
     public Korttipakka(){
         alustaKorttiPakka();
-        pakka = new ArrayList<Kortti>();
+        pakka = new ArrayList<>();
     }
     public void alustaKorttiPakka(){
         
