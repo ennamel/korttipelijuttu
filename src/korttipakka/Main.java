@@ -15,10 +15,14 @@ public class Main {
         
         Korttipakka pakka = new Korttipakka();
         ArrayList<Kortti> pakkah = pakka.getPakka();
+        Kortti keks = pakka.arvoKortti();
+        System.out.println("Arvottu kortti: "+keks+"\n\n");
+        
            
         for (Kortti kortti : pakkah) {
             System.out.println(kortti+"\n");
-        };
+        }
+        
         
         
         
