@@ -16,11 +16,9 @@ public class Main {
         Korttipakka pakka = new Korttipakka();
         ArrayList<Kortti> pakkah = pakka.getPakka();
            
-        for (Kortti kortti : pakkah){
-            System.out.println(Kortti+"\n");
-            
-            
-        }
+        for (Kortti kortti : pakkah) {
+            System.out.println(kortti+"\n");
+        };
         
         
         
