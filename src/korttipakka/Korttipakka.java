@@ -6,18 +6,36 @@
 
 package korttipakka;
 
-/**
- *
- * @author ile
- */
+import java.util.ArrayList;
+
 public class Korttipakka {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        System.out.println("Hello World!!1");
-        System.out.println("aku on homopää");
+    private ArrayList<Kortti> pakka;
+
+    public Korttipakka(){
+        alustaKorttiPakka();
+        pakka = new ArrayList<Kortti>();
     }
+    public void alustaKorttiPakka(){
+        
+        for (int i=0;i<14;i++){
+            Kortti korttinen = new Kortti(Maa.HERTTA, i);
+            pakka.add(korttinen);
+        }
+        for (int i=0;i<14;i++){
+            Kortti korttinen = new Kortti(Maa.RUUTU, i);
+            pakka.add(korttinen);
+        }
+        for (int i=0;i<14;i++){
+            Kortti korttinen = new Kortti(Maa.RISTI, i);
+            pakka.add(korttinen);
+        }
+        for (int i=0;i<14;i++){
+            Kortti korttinen = new Kortti(Maa.PATA, i);
+            pakka.add(korttinen);
+        }
+        
+    }
+  
     
 }
