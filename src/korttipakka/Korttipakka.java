@@ -36,6 +36,9 @@ public class Korttipakka {
         }
         
     }
+    private void muokkaus(){
+    
+}
   
     
 }
