@@ -8,5 +8,7 @@ package pelaaja;
 
 
 public class kasiArvioija {
+    //tä'nne tullee arvijoita pleist
     
+    //ps ei oo valmis vil
 }
