@@ -13,7 +13,7 @@ import korttipakka.Korttipakka;
  *
  * @author ile
  */
-public class Kasi {
+public class Kasi implements Comparable<Kasi>{
 
     private ArrayList<Kortti> kasi;
 
@@ -31,6 +31,19 @@ public class Kasi {
         }
         return returni;
 
+    }
+    public int isPari(){
+        
+        
+        
+        
+        return 0;
+    }
+    @Override
+    public int compareTo(Kasi tKasi){
+        
+        
+        return 0;
     }
 
 }
