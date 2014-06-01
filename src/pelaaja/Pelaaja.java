@@ -21,7 +21,9 @@ public class Pelaaja {
     }
 
     public void jaaKasi(Korttipakka kp, int maara) {
-        this.kasi = new Kasi(kp, maara);
+        this.kasi = new Kasi();
+        kasi.jaaKortteja(kp, maara);
+        
 
     }
 

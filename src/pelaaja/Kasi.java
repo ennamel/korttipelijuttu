@@ -16,10 +16,9 @@ import korttipakka.Korttipakka;
 public class Kasi implements Comparable<Kasi>{
 
     private ArrayList<Kortti> kasi;
+    private int koko;
 
-    public Kasi(Korttipakka kp, int koko) {
-
-        this.kasi = kp.arvoKortteja(koko);
+    public Kasi() {
 
     }
 
@@ -44,6 +43,12 @@ public class Kasi implements Comparable<Kasi>{
         
         
         return 0;
+    }
+    public void jaaKortteja(Korttipakka kp, int maara){
+        
+        this.kasi = kp.arvoKortteja(maara);
+        
+        
     }
 
 }
