@@ -30,28 +30,29 @@ public class kasiArvioija {
         for (int i = 0; i < arvot.length; i++) {   //käydään arvolistaläpi
             int apuri = 0;
             for (int j = 0; j < arvot.length; j++) {
-                if (arvot[j] == tarkistus) {
+                if (arvot[j] == arvot[i]) {
                     apuri++;
+                    
                 }
+               // System.out.println(arvot[i]+" apuri: "+apuri);
                 if (apuri > 1) {
                     if (pari[0] == -1) {
-                        pari[0] = arvot[j];
-                    } else if (pari[1] == -1 && arvot[j] != pari[0]) {
-                        pari[1] = arvot[j];
+                        pari[0] = arvot[i];
+                    } else if (pari[1] == -1 && arvot[i] != pari[0]) {
+                        pari[1] = arvot[i];
                     }
                     if (pari[0] != -1 && pari[1] != -1) {
-                        if (pari[0] > pari[1] && pari[1] < arvot[j]) {
-                            pari[1] = arvot[j];
-                        } else if (pari[1] > pari[0] && pari[0] < arvot[j]) {
-                            pari[0] = arvot[j];
+                        if (pari[0] > pari[1] && pari[1] < arvot[i]) {
+                            pari[1] = arvot[i];
+                        } else if (pari[1] > pari[0] && pari[0] < arvot[i]) {
+                            pari[0] = arvot[i];
                         }
 
                     }
                 }
 
             }
-            tarkistus = arvot[i];
-            System.out.println("debug: tarkistus: " + tarkistus);
+           
             if (pari[0] == pari[1]) {
                 pari[1] = -1;
             }

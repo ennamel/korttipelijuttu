@@ -22,19 +22,19 @@ public class Korttipakka {
 
     public void alustaKorttiPakka() {
 
-        for (int i = 0; i < 14; i++) {
+        for (int i = 2; i < 15; i++) {
             Kortti korttinen = new Kortti(Maa.HERTTA, i);
             pakka.add(korttinen);
         }
-        for (int i = 0; i < 14; i++) {
+        for (int i = 2; i < 15; i++) {
             Kortti korttinen = new Kortti(Maa.RUUTU, i);
             pakka.add(korttinen);
         }
-        for (int i = 0; i < 14; i++) {
+        for (int i = 2; i < 15; i++) {
             Kortti korttinen = new Kortti(Maa.RISTI, i);
             pakka.add(korttinen);
         }
-        for (int i = 0; i < 14; i++) {
+        for (int i = 2; i < 15; i++) {
             Kortti korttinen = new Kortti(Maa.PATA, i);
             pakka.add(korttinen);
         }
