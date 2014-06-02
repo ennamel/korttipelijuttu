@@ -23,50 +23,56 @@ public class kasiArvioija {
         int[] arvot = this.kasi.getArvot();
         int tarkistus = -2;
         List<Integer> kickerit = this.kasi.arvotAsList();
-        
 
-        int pari[] = {-1, -1, -1, -1, -1}; 
+        //System.out.println("debug arvot length: "+arvot.length+" kickerit lenght: "+kickerit.size());
+        int pari[] = {-1, -1, -1, -1, -1};
 
         for (int i = 0; i < arvot.length; i++) {   //käydään arvolistaläpi
-            if (arvot[i] == tarkistus) {
-                System.out.println("debug: löytyi pari");
-                if (pari[0] == -1) {
-                    pari[0] = arvot[i];
-                } else if (pari[1] == -1) {
-                    pari[1] = arvot[i];
+            int apuri = 0;
+            for (int j = 0; j < arvot.length; j++) {
+                if (arvot[j] == tarkistus) {
+                    apuri++;
                 }
-                if (pari[0] != -1 && pari[1] != 1) {
-                    if (pari[0] > pari[1] && pari[1] < arvot[i]) {
-                        pari[1] = arvot[i];
-                    } else if (pari[1] > pari[0] && pari[0] < arvot[i]) {
-                        pari[0] = arvot[i];
+                if (apuri > 1) {
+                    if (pari[0] == -1) {
+                        pari[0] = arvot[j];
+                    } else if (pari[1] == -1 && arvot[j] != pari[0]) {
+                        pari[1] = arvot[j];
                     }
+                    if (pari[0] != -1 && pari[1] != -1) {
+                        if (pari[0] > pari[1] && pari[1] < arvot[j]) {
+                            pari[1] = arvot[j];
+                        } else if (pari[1] > pari[0] && pari[0] < arvot[j]) {
+                            pari[0] = arvot[j];
+                        }
 
+                    }
                 }
+
             }
             tarkistus = arvot[i];
+            System.out.println("debug: tarkistus: " + tarkistus);
+            if (pari[0] == pari[1]) {
+                pari[1] = -1;
+            }
         }
-        if (pari[0] < pari[1]){  //jos eka pari ei oo isompi, vaihdetaan päittäin
+        if (pari[0] < pari[1]) {  //jos eka pari ei oo isompi, vaihdetaan päittäin
             int apu = pari[0];
             pari[0] = pari[1];
             pari[1] = apu;
-            
+
         }
-        
-        
+
         Collections.sort(kickerit);    //sortataan käden sisältämien arvojen lista
         int apu = 2;
-        for (int i=0; i<kickerit.size(); i++){  // käydään lista läpi
-            while (arvot[2] == -1 || arvot[3] == -1 || arvot [4]==-1){  //tää pyöräytetään vaan jos on vielä täytettävää
-                if (kickerit.get(i) != arvot[0] ||kickerit.get(i) != arvot[1]){  //kickeriks ei kelpaa arvo, joka on jommankumman parin arvona
-                    arvot[apu] = kickerit.get(i);
+        for (int i = kickerit.size() - 1; i > -1; i--) {  // käydään lista läpi
+            if (apu < 5) {
+                if (kickerit.get(i) != pari[0] && kickerit.get(i) != pari[1]) {  //kickeriks ei kelpaa arvo, joka on jommankumman parin arvona
+                    pari[apu] = kickerit.get(i);
                     apu++;
                 }
-                    
-                
-                
             }
-            
+
         }
 
         return pari;
