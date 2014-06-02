@@ -6,8 +6,10 @@
 package pelaaja;
 
 import java.util.ArrayList;
+import java.util.List;
 import korttipakka.Kortti;
 import korttipakka.Korttipakka;
+import korttipakka.Maa;
 
 /**
  *
@@ -31,13 +33,34 @@ public class Kasi implements Comparable<Kasi>{
         return returni;
 
     }
-    public int isPari(){
-        
-        
-        
-        
-        return 0;
+    public ArrayList<Kortti> returnKasiList(){
+        return this.kasi;
     }
+    public int[] getArvot(){
+        int[] arvot = new int[kasi.size()];
+        int i = 0;
+        for (Kortti korttinen : kasi){
+            arvot[i] = korttinen.getArvo();
+            i++;
+        }
+        return arvot;
+        
+    }
+    public List<Integer> arvotAsList(){
+        List<Integer> lista = new ArrayList<>();
+        kasi.stream().forEach((korttinen) -> {
+            lista.add(korttinen.getArvo());
+        });
+        return lista;
+    }
+    public ArrayList<Maa> getMaat(){
+        ArrayList<Maa>  maat = new ArrayList<>();
+        kasi.stream().forEach((korttinen) -> {
+            maat.add(korttinen.getMaa());
+        });
+        return maat;
+    }
+
     @Override
     public int compareTo(Kasi tKasi){
         
