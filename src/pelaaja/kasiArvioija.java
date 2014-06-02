@@ -19,22 +19,36 @@ public class kasiArvioija {
         this.kasi = kasi;
     }
 
-    public int[] isPari() {    //palauttaa -1 jos ei paria, muuten palauttaa parin arvon
+    /* ISPARI METODIN PALAUTUKSET ERI TILANTEISSA:
+    PARI: 0. alkio on parin arvo, 1. ja 5. alkio ovat KUMMATKIN -1. Kickerit saa alkioista 2,3,4
+    
+    KAKSI PARIA: 0. alkio on suuremman parin arvo, 1. alkio pienemmän parin arvo. 5. alkio AINA -1. Kickerin saa alkiosta 2
+    
+    KOLMOSET: 0. alkio on kolmosten arvo, 1. alkio AINA -1, 5. alkio AINA 1, kickerit saa alkioista 2 ja 3.
+    
+    TÄPÄRI: 0. alkio on kolmosten arvo, 1. alkio on parin arvo, 5. alkio AINA 1
+    
+    NELOSET : 0. alkio nelosten arvo. 5. alkio AINA 4. Kickeri alkiosta 2
+    
+    
+    */
+    
+    public int[] isPari() {     
         int[] arvot = this.kasi.getArvot();
         int tarkistus = -2;
         List<Integer> kickerit = this.kasi.arvotAsList();
 
         //System.out.println("debug arvot length: "+arvot.length+" kickerit lenght: "+kickerit.size());
-        int pari[] = {-1, -1, -1, -1, -1};
+        int pari[] = {-1, -1, -1, -1, -1, -1};
 
         for (int i = 0; i < arvot.length; i++) {   //käydään arvolistaläpi
             int apuri = 0;
             for (int j = 0; j < arvot.length; j++) {
                 if (arvot[j] == arvot[i]) {
                     apuri++;
-                    
+
                 }
-               // System.out.println(arvot[i]+" apuri: "+apuri);
+                // System.out.println(arvot[i]+" apuri: "+apuri);
                 if (apuri > 1) {
                     if (pari[0] == -1) {
                         pari[0] = arvot[i];
@@ -44,20 +58,40 @@ public class kasiArvioija {
                     if (pari[0] != -1 && pari[1] != -1) {
                         if (pari[0] > pari[1] && pari[1] < arvot[i]) {
                             pari[1] = arvot[i];
-                        } else if (pari[1] > pari[0] && pari[0] < arvot[i]) {
+                        } else if (pari[1] > pari[0] && pari[0] < arvot[i] && pari[5] == -1 ) {
                             pari[0] = arvot[i];
                         }
 
                     }
                 }
+                if (apuri == 3) {
+                    if (pari[0] != arvot[i]) {
+                        int auttaja = pari[0];
+                        pari[0] = arvot[i];
+                        pari[1] = auttaja;
+
+                    }
+                    pari[5] = 1;
+
+                }
+                if (apuri == 4){
+                    if (pari[0] != arvot[i]) {
+                        int auttaja = pari[0];
+                        pari[0] = arvot[i];
+                        pari[1] = auttaja;
+
+                    }
+                    pari[5] = 4;
+                    break;
+                }
 
             }
-           
+
             if (pari[0] == pari[1]) {
                 pari[1] = -1;
             }
         }
-        if (pari[0] < pari[1]) {  //jos eka pari ei oo isompi, vaihdetaan päittäin
+        if (pari[0] < pari[1] && pari[5] == -1) {  //jos eka pari ei oo isompi, vaihdetaan päittäin
             int apu = pari[0];
             pari[0] = pari[1];
             pari[1] = apu;

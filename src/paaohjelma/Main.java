@@ -19,6 +19,7 @@ public class Main {
         Korttipakka pakka = new Korttipakka();
         Pelaaja pekka = new Pelaaja("Pekka");
         pekka.jaaKasi(pakka, 7);
+        pekka.getKasi().jaaTapari(pakka);
         
         System.out.println(pekka);
         kasiArvioija kekkedee = new kasiArvioija(pekka.getKasi());

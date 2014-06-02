@@ -60,6 +60,22 @@ public class Kasi implements Comparable<Kasi>{
         });
         return maat;
     }
+    public void jaaNelosetjaAssa(Korttipakka kp){
+        this.kasi.clear();
+        kasi.add(new Kortti(Maa.HERTTA, 2));
+        kasi.add(new Kortti(Maa.PATA, 2));
+        kasi.add(new Kortti(Maa.RUUTU, 2));
+        kasi.add(new Kortti(Maa.RISTI, 2));
+        kasi.add(new Kortti(Maa.PATA, 14));
+    }
+      public void jaaTapari(Korttipakka kp){
+        this.kasi.clear();
+        kasi.add(new Kortti(Maa.HERTTA, 2));
+        kasi.add(new Kortti(Maa.PATA, 2));
+        kasi.add(new Kortti(Maa.RUUTU, 2));
+        kasi.add(new Kortti(Maa.RISTI, 3));
+        kasi.add(new Kortti(Maa.PATA, 3));
+    }
 
     @Override
     public int compareTo(Kasi tKasi){
