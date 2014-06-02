@@ -20,15 +20,16 @@ public class kasiArvioija {
     }
 
     public int[] isPari() {    //palauttaa -1 jos ei paria, muuten palauttaa parin arvon
-        int[] arvot = kasi.getArvot();
+        int[] arvot = this.kasi.getArvot();
         int tarkistus = -2;
-        List<Integer> kickerit = kasi.arvotAsList();
+        List<Integer> kickerit = this.kasi.arvotAsList();
         
 
         int pari[] = {-1, -1, -1, -1, -1}; 
 
         for (int i = 0; i < arvot.length; i++) {   //käydään arvolistaläpi
             if (arvot[i] == tarkistus) {
+                System.out.println("debug: löytyi pari");
                 if (pari[0] == -1) {
                     pari[0] = arvot[i];
                 } else if (pari[1] == -1) {

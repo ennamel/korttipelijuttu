@@ -33,5 +33,8 @@ public class Pelaaja {
         return "Nimi: "+nimi + " Käsi: "+ this.kasi;
 
     }
+    public Kasi getKasi(){
+        return this.kasi;
+    }
 
 }

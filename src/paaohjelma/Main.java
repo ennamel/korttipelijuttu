@@ -7,6 +7,7 @@ package paaohjelma;
 
 import korttipakka.Korttipakka;
 import pelaaja.Pelaaja;
+import pelaaja.kasiArvioija;
 
 /**
  *
@@ -20,7 +21,12 @@ public class Main {
         pekka.jaaKasi(pakka, 5);
         
         System.out.println(pekka);
+        kasiArvioija kekkedee = new kasiArvioija(pekka.getKasi());
+        int[] pbleet = kekkedee.isPari();
         
-        pakka.printPakka();
+        for (int i=0;i<pbleet.length;i++){
+            System.out.println("Alkio "+i+": "+pbleet[i]);
+        }
+        //pakka.printPakka();
     }
 }
